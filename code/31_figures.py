@@ -104,7 +104,7 @@ def fig_grid(main):
                yerr=np.vstack([[v["mean"] - v["lo"] for v in vals], [v["hi"] - v["mean"] for v in vals]]),
                error_kw=dict(lw=0.8, capsize=2))
         ax.set_xticks(range(5))
-        ax.set_xticklabels([o[2].replace(", ", "\n") for o in order], fontsize=7)
+        ax.set_xticklabels([o[2].replace(", ", "\n") for o in order], fontsize=7, rotation=35, ha="right")
         if c == 0:
             ax.set_ylabel("Reverse-flow hours per year")
     fig.tight_layout()
@@ -259,11 +259,11 @@ def fig_sens():
     s["tkw"] = s["tkw"].fillna("base")
     groups = [("Flat\nFiT", [("flat", "fit0"), ("flat", "base"), ("flat", "fit10")], ["0", "5", "10"]),
               ("ToU\nFiT", [("tou", "fit0"), ("tou", "base"), ("tou", "fit10")], ["0", "5", "10"]),
-              ("ToU, market\nrates", [("tou", "base"), ("tou", "offpeak_c21.6-peak_c54")], ["AER", "market"]),
-              ("Demand\n(15-21h)", [("tou_demand", "demand_aud0.2"), ("tou_demand", "base"), ("tou_demand", "demand_aud0.8")], ["0.2", "0.4", "0.8"]),
-              ("Demand\n(24 h)", [("tou_demand24", "demand_aud0.2"), ("tou_demand24", "base"), ("tou_demand24", "demand_aud0.8")], ["0.2", "0.4", "0.8"]),
+              ("ToU\nrates", [("tou", "base"), ("tou", "offpeak_c21.6-peak_c54")], ["AER", "market"]),
+              ("Demand\n15-21h", [("tou_demand", "demand_aud0.2"), ("tou_demand", "base"), ("tou_demand", "demand_aud0.8")], ["0.2", "0.4", "0.8"]),
+              ("Demand\n24 h", [("tou_demand24", "demand_aud0.2"), ("tou_demand24", "base"), ("tou_demand24", "demand_aud0.8")], ["0.2", "0.4", "0.8"]),
               ("Export\nlimit", [("tou_exportlimit", "export_limit3"), ("tou_exportlimit", "base"), ("tou_exportlimit", "export_limit5")], ["3", "1.5", "5"])]
-    fig, axes = plt.subplots(2, 2, figsize=(9.0, 5.4))
+    fig, axes = plt.subplots(2, 2, figsize=(9.5, 5.8))
     for c, pvs in enumerate(cfg.PV_SCALES):
         for r, (qty, scn_list) in enumerate((("d_peak_pct", [("B_lp", C["B"], "Individual"), ("C_lp", C["C"], "Community")]),
                                               ("sav", None))):
@@ -288,18 +288,18 @@ def fig_sens():
                         if len(v):
                             ax.bar(p + off, v["mean"].iloc[0] / 1000, 0.26, color=col)
             ax.set_xticks([x[2] for x in xs])
-            ax.set_xticklabels(labs, fontsize=8, rotation=60)
+            ax.set_xticklabels(labs, fontsize=10, rotation=60)
             for gx, gn in gl:
-                ax.text(gx, -0.42, gn, ha="center", va="top", fontsize=8.5, transform=ax.get_xaxis_transform())
+                ax.text(gx, -0.42, gn, ha="center", va="top", fontsize=10, transform=ax.get_xaxis_transform())
             if qty == "d_peak_pct":
                 ax.axhline(0, color="k", lw=0.6)
                 ax.set_title(f"PV x{pvs:g}", fontsize=9)
             if c == 0:
                 ax.set_ylabel("Peak vs no battery (%),\ncost-minimising" if qty == "d_peak_pct" else "Saving (A$ thousand per year),\nrule-based")
     h = [plt.Rectangle((0, 0), 1, 1, color=C["B"]), plt.Rectangle((0, 0), 1, 1, color=C["C"])]
-    axes[0, 0].legend(h, ["Individual", "Community"], frameon=False, fontsize=7)
+    axes[0, 0].legend(h, ["Individual", "Community"], frameon=False, fontsize=9)
     h = [plt.Rectangle((0, 0), 1, 1, color=C[k]) for k in ("B",)] + [plt.Rectangle((0, 0), 1, 1, color=C["sky"]), plt.Rectangle((0, 0), 1, 1, color=C["C"])]
-    axes[1, 0].legend(h, ["Individual", "Community, total", "Community, storage part"], frameon=False, fontsize=7)
+    axes[1, 0].legend(h, ["Individual", "Community, total", "Community, storage part"], frameon=False, fontsize=9)
     fig.tight_layout()
     fig.subplots_adjust(hspace=0.75)
     save(fig, "fig8_sensitivity")
