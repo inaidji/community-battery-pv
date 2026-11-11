@@ -32,7 +32,7 @@ simulation (steps 4 only; the data are needed only for `06_fairness.py` and the 
   tariff, demand charge and export limit are assumptions (varied in the sensitivity analysis).
 - Much of the code was written with the help of a generative AI assistant (see the paper's Generative AI
   statement); results should be checked against the shipped CSVs and the tests.
-- Licence: MIT for the code (placeholder holder "The authors"; adjust before release). The dataset is CC BY and
+- Licence: MIT for the code (copyright Ilyes Naidji). The dataset is CC BY and
   keeps its own licence.
 
 ## Citation

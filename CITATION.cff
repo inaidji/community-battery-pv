@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Community versus individual batteries for PV households: simulation code and results"
+authors:
+  - family-names: Naidji
+    given-names: Ilyes
+    affiliation: "RLP Laboratory, Computer Science Department, Mohamed Khider University of Biskra"
+repository-code: "https://github.com/inaidji/community-battery-pv"
+license: MIT
