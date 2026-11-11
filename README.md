@@ -37,4 +37,4 @@ simulation (steps 4 only; the data are needed only for `06_fairness.py` and the 
 
 ## Citation
 
-TODO: add the paper citation and a Zenodo DOI after acceptance.
+Archived release: https://doi.org/10.5281/zenodo.24129444 (see `CITATION.cff`). Add the paper citation after publication.

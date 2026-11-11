@@ -7,3 +7,5 @@ authors:
     affiliation: "RLP Laboratory, Computer Science Department, Mohamed Khider University of Biskra"
 repository-code: "https://github.com/inaidji/community-battery-pv"
 license: MIT
+doi: "10.5281/zenodo.24129444"
+version: "1.0.0"
