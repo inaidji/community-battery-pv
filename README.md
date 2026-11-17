@@ -64,5 +64,6 @@ MIT (see `LICENSE`).
 
 ## Citation
 
-See `CITATION.cff`. Archived on Zenodo; version 1.0.0: https://doi.org/10.5281/zenodo.24129444.
+See `CITATION.cff`. Archived on Zenodo: https://doi.org/10.5281/zenodo.24129443 (all versions; resolves to the latest).
+Version 1.0.0: https://doi.org/10.5281/zenodo.24129444.
 Version 2.0.0 is the code and results behind the revised paper. Add the paper citation after publication.
