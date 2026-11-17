@@ -1,0 +1,51 @@
+# Central configuration: every modelling assumption and every experiment setting.
+# code/config.py loads this file and exposes each key in upper case (cfg.BATT_C_RATE, ...).
+# Entries marked ASSUMED are assumptions, not sourced values; they are varied in the sensitivity analysis.
+
+data:
+  slots: 48                       # half-hours per day
+  dt_h: 0.5                       # hours per slot
+
+battery:                          # ASSUMED, typical LFP unit
+  batt_kwh_per_home_sweep: [2.5, 5.0, 10.0]   # equal total capacity in scenarios B and C
+  batt_c_rate: 0.5                # rated power = c_rate x capacity (kW)
+  batt_eta_one_way: 0.95          # round trip about 0.90
+  batt_soc_min: 0.0
+
+pv:
+  pv_scales: [1.0, 3.0]           # data mean 1.68 kWp; x3 is about 5 kWp
+
+tariffs:                          # c/kWh incl. GST, clock time. AER DMO 2026-27, Ausgrid residential
+  flat_c_per_kwh: 33.1372
+  tou_peak_months: [11, 12, 1, 2, 3, 6, 7, 8]
+  tou_peak_start_h: 15
+  tou_peak_end_h: 21
+  tou_peak_c: 60.1966
+  tou_offpeak_c: 24.0387
+  tou_peak_c_market: 54.0         # retail market-offer rates, tariff-level sensitivity only
+  tou_offpeak_c_market: 21.6
+  fit_c_per_kwh: 5.0              # ASSUMED feed-in tariff
+  demand_aud_per_kw_day: 0.40     # ASSUMED demand charge on the monthly maximum import
+  export_limit_kw_per_home: 1.5   # ASSUMED
+  free_start_h: 11                # illustrative free-midday variant 'tou_free': zero import price 11:00-14:00 every day
+  free_end_h: 14                  # (window of the Solar Sharer Offer in NSW from 1 July 2026; other terms of that offer not modelled)
+  tariffs: [flat, tou, tou_demand, tou_demand24, tou_exportlimit]
+
+controllers:
+  spread_start_slot: 20           # "spread" top-up starts at 10:00
+
+economics:
+  batt_cost_home_aud_per_kwh: 800.0          # Solar Choice price index, Nov 2026, net of federal rebate
+  batt_cost_community_aud_per_kwh: 1280.0    # ARENA Community Batteries Round 1 average, gross
+  arena_max_grant_aud_per_kwh: 510.0
+  discount_rate: 0.06             # ASSUMED
+  batt_life_max_years: 15         # ASSUMED
+  batt_cycle_life: 6000           # ASSUMED equivalent full cycles
+
+run:
+  n_jobs: 7                       # overridden by the environment variable CB_JOBS
+  partition_seed_base: 1000       # partition seed = base + group size
+  n_partitions: 4
+  random_tiebreak_draws: 5        # lp_random plus lp_random_s1..s4
+  ask_before_minutes: 30          # runs longer than this, or with more than ask_before_configs
+  ask_before_configs: 200         # stage-1/stage-2 tasks, need the author's approval first

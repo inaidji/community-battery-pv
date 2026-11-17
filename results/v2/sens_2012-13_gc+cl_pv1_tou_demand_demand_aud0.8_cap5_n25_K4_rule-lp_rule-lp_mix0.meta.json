@@ -1,0 +1,1 @@
+{"spec": {"year": "2012-13", "loadvar": "gc+cl", "pv": 1.0, "tname": "tou_demand", "tkw": {"demand_aud": 0.8}, "cap": 5.0, "batt": {}}, "n": 25, "partitions_seed": 1025, "n_partitions": 4, "controllers_B": ["rule", "lp"], "controllers_C": ["rule", "lp"], "code_sha": "adc7ddb0214f", "config_sha": "35e3d951a11e", "duration_s": 144.5, "written": "2026-11-17T01:13:54"}

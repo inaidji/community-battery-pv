@@ -16,7 +16,10 @@ import config as cfg
 import exp
 from exp import spec
 
-N_JOBS = 7
+import config as cfg
+import runlog
+
+N_JOBS = cfg.N_JOBS
 PV = cfg.PV_SCALES
 SEED = lambda n: 1000 + n
 
@@ -84,3 +87,4 @@ if __name__ == "__main__":
     print(f"stage 2: {len(jobs)} jobs", flush=True)
     Parallel(n_jobs=N_JOBS, verbose=5)(delayed(s2)(j) for j in jobs)
     print(f"done ({time.time()-t0:.0f}s)", flush=True)
+    runlog.write("20_run_all.py", t0, len(task_list) + len(jobs))

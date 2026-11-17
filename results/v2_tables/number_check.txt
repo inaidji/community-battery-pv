@@ -1,0 +1,53 @@
+files checked: main.tex, sec_methods.tex, sec_related.tex, sec_statements.tex, supplementary.tex
+result keys used: 303 (registry: 25011)
+literals marked \lit: 45
+errors: 0
+
+ERRORS
+
+LITERALS (not results of this study; each must be a quoted, cited or definitional value)
+main.tex:34: 26.8
+main.tex:34: 4.2
+main.tex:34: 200
+main.tex:34: 400
+main.tex:100: 0.90
+main.tex:100: 0.98
+main.tex:236: 0.05
+sec_methods.tex:80: 10^{-6}
+sec_methods.tex:85: 0.01
+sec_methods.tex:85: 0.01
+sec_methods.tex:100: 0.5
+sec_methods.tex:101: 90\%
+sec_methods.tex:101: 110\%
+sec_methods.tex:104: 300
+sec_methods.tex:104: 1 July 2010 to 30 June 2013
+sec_methods.tex:104: 139
+sec_methods.tex:104: 300
+sec_methods.tex:104: 0.2\%
+sec_methods.tex:106: 100
+sec_methods.tex:106: two
+sec_methods.tex:106: 10\%
+sec_methods.tex:106: four
+sec_methods.tex:106: 365
+sec_methods.tex:122: 166.2289
+sec_methods.tex:122: 3\,900
+sec_methods.tex:122: 1\,899
+sec_methods.tex:122: 1.5
+sec_methods.tex:122: 4
+sec_methods.tex:140: 88
+sec_methods.tex:140: 90\%
+sec_methods.tex:142: 0.99
+sec_methods.tex:142: 0.9
+sec_methods.tex:159: 0.975
+sec_methods.tex:167: 10
+sec_methods.tex:167: 798
+sec_related.tex:4: 100
+sec_related.tex:4: 37--66\%
+sec_related.tex:4: 4\,500
+sec_related.tex:4: 200
+sec_related.tex:8: 2--3
+sec_related.tex:8: 19\%
+sec_related.tex:8: 30\%
+sec_statements.tex:17: 5.5
+sec_statements.tex:17: 5.2
+sec_statements.tex:17: 5.5

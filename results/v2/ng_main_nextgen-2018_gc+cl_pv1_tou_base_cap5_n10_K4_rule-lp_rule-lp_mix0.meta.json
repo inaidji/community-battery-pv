@@ -1,0 +1,1 @@
+{"spec": {"year": "nextgen-2018", "loadvar": "gc+cl", "pv": 1.0, "tname": "tou", "tkw": {}, "cap": 5.0, "batt": {}}, "n": 10, "partitions_seed": 1010, "n_partitions": 4, "controllers_B": ["rule", "lp"], "controllers_C": ["rule", "lp"], "code_sha": "adc7ddb0214f", "config_sha": "35e3d951a11e", "duration_s": 65.4, "written": "2026-11-17T02:54:42"}

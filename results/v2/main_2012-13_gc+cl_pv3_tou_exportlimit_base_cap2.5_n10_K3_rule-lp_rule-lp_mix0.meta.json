@@ -1,0 +1,1 @@
+{"spec": {"year": "2012-13", "loadvar": "gc+cl", "pv": 3.0, "tname": "tou_exportlimit", "tkw": {}, "cap": 2.5, "batt": {}}, "n": 10, "partitions_seed": 1010, "n_partitions": 3, "controllers_B": ["rule", "lp"], "controllers_C": ["rule", "lp"], "code_sha": "adc7ddb0214f", "config_sha": "35e3d951a11e", "duration_s": 211.5, "written": "2026-11-17T00:58:12"}

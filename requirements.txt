@@ -1,6 +1,8 @@
-numpy>=1.24
-scipy>=1.11
-pandas>=2.0
-joblib>=1.2
-matplotlib>=3.7
-pytest>=7
+# Pinned to the versions used to produce the results (Python 3.11.14).
+numpy==1.24.3
+scipy==1.11.1
+pandas==2.0.3
+joblib==1.2.0
+matplotlib==3.7.2
+pytest==7.4.0
+PyYAML==6.0.2

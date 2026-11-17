@@ -11,3 +11,6 @@ paper/*.blg
 paper/*.fls
 paper/*.fdb_latexmk
 paper/*.pdf
+results/v2/*.log
+results/v2_tables/*.log
+.pytest_cache/

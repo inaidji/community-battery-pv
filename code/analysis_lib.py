@@ -14,7 +14,7 @@ from scipy import stats
 import sim
 
 R = sim.ROOT / "results" / "v2"
-KEYS = ["year", "loadvar", "pv", "tariff", "tkw", "cap", "n", "nopv_every"]
+KEYS = ["year", "loadvar", "pv", "tariff", "tkw", "batt", "cap", "n", "nopv_every"]
 
 
 def load(prefix):
@@ -23,7 +23,17 @@ def load(prefix):
         raise FileNotFoundError(prefix)
     df = pd.concat([pd.read_csv(f) for f in fs], ignore_index=True)
     df["tkw"] = df["tkw"].fillna("base")
+    df["batt"] = df["batt"].fillna("base") if "batt" in df.columns else "base"
     return df
+
+
+def load_controllers():
+    """Controller study: ctrl_ merged with ctrl2_ and seeds_. The persistence controller of ctrl_ (which used
+    the actual load on day 1) is superseded by the corrected one in ctrl2_."""
+    a, b, c = load("ctrl_"), load("ctrl2_"), load("seeds_")
+    a = a[~a.scenario.str.endswith("mpc_persist")]
+    keep = lambda d: d[~d.scenario.isin(["A", "A_agg"])]
+    return pd.concat([a, keep(b), keep(c)], ignore_index=True)
 
 
 def wide(df, metric):
